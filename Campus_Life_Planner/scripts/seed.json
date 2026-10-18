@@ -1,0 +1,13 @@
+[
+  {"title": "Volleyball practice", "date": "2025-09-29", "duration": 90, "category": "Sports"},
+  {"title": "Read chapter 4, summarise notes", "date": "2025-09-30", "duration": 45, "category": "Study"},
+  {"title": "Leap day revision", "date": "2024-02-29", "duration": 120, "category": "Study"},
+  {"title": "New year planning", "date": "2025-01-01", "duration": 30, "category": "Personal"},
+  {"title": "End of year deadline", "date": "2025-12-31", "duration": 60, "category": "Admin"},
+  {"title": "Quick email", "date": "2025-10-01", "duration": 1, "category": "Admin"},
+  {"title": "All day exam revision marathon", "date": "2025-10-05", "duration": 9999, "category": "Study"},
+  {"title": "Don't forget, club meeting at 1430!", "date": "2025-10-02", "duration": 60, "category": "Clubs"},
+  {"title": "Pay the the library fine", "date": "2025-10-03", "duration": 15, "category": "Admin"},
+  {"title": "Abc", "date": "2025-10-04", "duration": 20, "category": "Test"},
+  {"title": "Submit the entrepreneurship portfolio draft online", "date": "2025-10-06", "duration": 150, "category": "Study"}
+]
