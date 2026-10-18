@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 25px
+}
+
+header h1 {
+    margin-top: 20px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    color: blue;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+
+    section{
+        padding: 10px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    table{
+        font-size: 12px;
+    }
+}    
+
+@media (min-width: 601px) and (max-width: 900px) {
+    main {
+        padding: 15px;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 901px) {
+    main { 
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form button {
+    margin-top: 10px;
+
+}
+
+
+

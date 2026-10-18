@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life Planner</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>Campus Life Planner</h1>
+        <p>Keeps track of the students campus activities and timelines/deadlines</p>
+        <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#Planner>">Student Planner</a></li>
+            <li><a href="#add-task">Add task</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>    
+
+
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>This website helps students organise their campus activities</p>
+        </section>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Total tasks: </p>
+            <p>Total study time: </p>
+            <p>Tasks completed this week: </p>
+            <p id="target-status">No weekly set</p>
+
+        </section>
+
+        <section id="Planner">
+            <h2>My Planner</h2>
+            <label for="search">Search tasks:</label>
+            <input type="text" id="search" placeholder=""Enter a search pattern">
+
+            <label>
+                <input type="checkbox" id="case-sensitive">
+
+            </label>
+            <p id="search-error" role="alert"></p>
+
+            <label for="sort">Sort tasks by:</label>
+            <select id="sort">
+               <option value="date">Date</option>
+               <option value="title">Title</option>
+               <option value="duration">duration</option>
+            </select>    
+        
+            <table>
+               <caption>My campus activities </caption>
+               <thead>
+                   <tr>
+                      <th>Task</th>
+                      <th>Date</th>
+                      <th>Minutes</th>
+                      <th>Categories</th>
+                      <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-list">
+                </tbody>
+            </table>
+            <p id="task-message" aria-live="'polite>"</p>
+        </section>
+
+        <section id="add-task">
+            <h2>Add a task</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <label for="task-title">Task name:</label>
+                <input type="text" id="task-title" required>
+                <p id="title-error" role="alert"></p>
+                <label for="task-date">Date:</label>
+                <input type="date" id="task-date" required>
+
+                <label for="task-duration">Study time in minutes:</label>
+                <input type="number" id="task-duration" min="1" required>
+
+                <label for="task-category">Category:</label>
+                <input type="text" id="task-category" required>
+
+                <button type="submit">Save Task</button>
+                <button type="button" id="cancel-edit">Cancel Edit</button>
+            </form>
+        </section>
+
+        <selection id="settings">
+            <h2>Settings</h2>
+
+            <label for="weekly-target">Weekly study target in minutes:</label>
+            <input type="number" id="weekly-target" min="0">
+
+            <label for="time-format">Display study time as:</label>
+            <select id="time-format">
+                <option value="minutes">Minutes</option>
+                <option value="hours">Hours</option>
+            </select>
+
+            <button type="button" id="save-settings">Save settings</button>
+
+            <h3>Backup Your Tasks</h3>
+            <button type="button" id="export-data">Export Tasks</button>
+
+            <label for="import-file">Import tasks from a JSON file:</label>
+            <input type="file" id="import-file" accept=".json">
+
+            <button type="button" id="import-data">Import Tasks</button>
+
+            <p id="settings-message" aria-live="polite"></p>
+
+        </selection>
+    </main>
+
+    <footer>
+        <p>Campus Life Planner - Student Project</p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
