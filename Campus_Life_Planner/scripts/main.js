@@ -13,12 +13,55 @@ const taskcategory = document.getElementById("task-category");
 
 const tasklist = document.getElementById("task-list");
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+const totalTasks = document.getElementById("total-tasks");
+const totalStudyTime = document.getElementById("total-study-time");
+const weeklyTarget = document.getElementById("weekly-target");
+const targetstatus = document.getElementById("target-status");
+
+
 
 function displayTask() {
     tasklist.innerHTML = "";
 
+    tasks.sort((a, b) =>{
+        if (sortSelect.value === "title") {
+            return a.title.localecompare(b.title);
+        }
+
+        if (sortSelect.value === "duration") {
+            return Number(a.duration) - Number(b.duration);
+
+        }
+        return a.date.localeCompare(b.date);
+
+    });
+
     for (let i = 0; i < tasks.length; i++) {
+        
+        const pattern = searchInput.value.trim();
+        if (pattern !=="") {
+            try {
+                const flags = caseSensitive.checked ? "" : "i";
+                const searchRegex = new RegExp(pattern, flags);
+                const text = tasks[i].title + " " + tasks[i].date + " " + tasks[i].duration + " " + tasks[i].category;
+
+                if (!searchRegex.test(text)) {
+                    continue;
+                }
+
+                searchError.textContent = "";
+
+            } catch (error) {
+                searchError.textContent = "Invalid regex pattern.";
+                return;
+            }
+
+        } else {
+            searchError.textContent = "";
+        }
+
         const row = document.createElement("tr");
 
         row.innerHTML = `<td>${tasks[i].title}</td>
@@ -27,6 +70,22 @@ function displayTask() {
         <td>${tasks[i].category}</td>
         `;
         tasklist.appendChild(row);
+    }
+}
+
+function updateDashboard() {
+    totalTasks.textContent = tasks.length;
+
+    let total = 0;
+    for (let i=0; i <tasks.length; i++) {
+        total += Number(tasks[i].duration);
+    }
+    totalStudyTime.textContent = total;
+    if (Number(weeklyTarget.value)>0) {
+        targetStatus.textContent = total + " / " + weeklyTarget.value + " minutes";
+
+    } else {
+        targetStatus.textContent = "No weekly target set";
     }
 }
 
@@ -40,7 +99,7 @@ taskform.addEventListener("submit", function(event) {
         return;
     }
 
-    const selectDate = new Date(date);
+    const selectedDate = new Date(date);
     if (Number.isNaN(selectedDate.getTime())) {
         alert("Please enter a valid date");
         return;
@@ -62,7 +121,7 @@ taskform.addEventListener("submit", function(event) {
         return;
     }
 
-    const titlePattern = /^[a-zA-Z0-9\s.,!?'-']+$/;
+    const titlePattern = /^[a-zA-Z0-9\s.,!?'-]+$/;
     if (!titlePattern.test(cleanTitle)) {
         alert("Use letters in the alphabet, numbers,basic punctuation and spaces in the title.");
         return;
@@ -96,16 +155,34 @@ taskform.addEventListener("submit", function(event) {
     }
 
     displayTask();
+    updateDashboard();
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     taskform.reset();
 
     document.getElementById("task-id").value = "";
-    taskform.querySelector('button[type="submit"]').textcontent =
+    taskform.querySelector('button[type="submit"]').textContent =
          "save Task";
          
 });
 
 searchInput.addEventListener("input", displayTask);
-caseSensitive.addEventListnener("change", displayTask);
+caseSensitive.addEventListener("change", displayTask);
 sortSelect.addEventListener("change", displayTask);
+document.getElementById("export-data").addEventListener("click", function() {
+    const data = JSON.stringify(tasks, null, 2);
+    const file = new Blob([data], { type: "application/json"});
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(file);
+    link.download = "tasks.json";
+    link.click();
+
+    URL.revokeObjectURL(link.href);
+});
+
+document.getElementById("save-settings").addEventListener("click",function(){
+    updateDashboard();
+});
+
 
 
