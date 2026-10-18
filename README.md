@@ -33,13 +33,7 @@ scripts/
   search.js      regex search
 ```
 
-## How to run
-The scripts are ES modules, so the page has to be served over http (opening the file directly will not work).
-1. Clone the repo.
-2. In the project folder run `python3 -m http.server`.
-3. Open `http://localhost:8000`.
 
-Or just use the live GitHub Pages link above.
 
 ## Regex catalog
 | Where | Pattern | Example |
