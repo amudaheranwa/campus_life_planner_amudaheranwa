@@ -18,6 +18,8 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const totalTasks = document.getElementById("total-tasks");
 const totalStudyTime = document.getElementById("total-study-time");
 const weeklyTarget = document.getElementById("weekly-target");
+weeklyTarget.value = localStorage.getItem("weeklyTarget") || "";
+document.getElementById("time-format").value = localStorage.getItem("timeFormat") || "minutes";
 const targetstatus = document.getElementById("target-status");
 
 
@@ -119,13 +121,20 @@ taskform.addEventListener("submit", function(event) {
     if(cleanTitle === ""){
         alert("please enter a task title.");
         return;
+
+    }
+    if (clean.length < 3 || cleanTitle.length > 50) {
+        alert("Title must be between 3 and 50 characters");
+        return;
     }
 
     const titlePattern = /^[a-zA-Z0-9\s.,!?'-]+$/;
-    if (!titlePattern.test(cleanTitle)) {
+    if (!advancedPattern.test(cleanTitle)) {
         alert("Use letters in the alphabet, numbers,basic punctuation and spaces in the title.");
         return;
     }
+
+    const advancedPattern = /^(?=.*[0-9])[a-zA-Z0-9\s.,!?'-]+$/;
 
     if (duration === ""|| Number(duration)<= 0){
         alert("Please enter a duration time above 0.");
@@ -180,7 +189,49 @@ document.getElementById("export-data").addEventListener("click", function() {
     URL.revokeObjectURL(link.href);
 });
 
+document.getElementById("import-data").addEventListnener("click", function(){
+    const file = document.getElementById("import-file").files[0];
+
+    if (!file) {
+        alert("Please select a JSON file.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function() {
+        try {
+            const importedTasks = JSON.parse(reader.result);
+
+            if (!Array.isArray(importedTasks)) {
+                alert("Invalid task file.");
+                return;
+            }
+            for (let i = 0; i < importedTasks.length; i++){
+                const task = importedTasks[i];
+                if (!task.title || !task.category || !task.date || !task.duration) {
+                    alert("A task is missing requirred information");
+                    return;
+                }
+            }
+
+            tasks = importedTasks;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            displayTask();
+            updateDashboard();
+
+            alert("Tasks imported successfully");
+        } catch (error) {
+            alert("Invalid JSON file");
+        }
+    };
+    
+    reader.readAsText(file);
+});
+
 document.getElementById("save-settings").addEventListener("click",function(){
+    localStorage.setItem("weeklyTarget", weeklyTarget.value);
+    localStorage.setItem("timeFormat", document.getElementById("time-format").value);
+
     updateDashboard();
 });
 
