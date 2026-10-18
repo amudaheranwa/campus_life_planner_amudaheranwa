@@ -5,7 +5,7 @@
 A vanilla HTML, CSS and JavaScript web app that helps students keep track of campus activities, study sessions and deadlines. Tasks are stored in the browser (localStorage), so no server or account is needed.
 
 - **Theme chosen:** Campus Life Planner
-- **Live site (GitHub Pages):** https://amudaheranwa.github.io/campus_life_planner_amudaheranwa/Campus-life-planner/
+- **Live site (GitHub Pages):** https://amudaheranwa.github.io/campus_life_planner_amudaheranwa/Campus-life-planner/index.html
 - **Demo video (unlisted):** 
 - **Author:** Alvin Mudaheranwa· GitHub:https://github.com/amudaheranwa/ · Email: amudaheran@alustudent.com
 
