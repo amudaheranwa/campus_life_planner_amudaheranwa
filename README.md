@@ -6,8 +6,8 @@ A vanilla HTML, CSS and JavaScript web app that helps students keep track of cam
 
 - **Theme chosen:** Campus Life Planner
 - **Live site (GitHub Pages):** https://amudaheranwa.github.io/campus_life_planner_amudaheranwa/Campus-life-planner/
-- **Demo video (unlisted):** ADD-LINK-HERE
-- **Author:** YOUR NAME · GitHub: https://github.com/YOUR-USERNAME · Email: you@example.com
+- **Demo video (unlisted):** 
+- **Author:** Alvin Mudaheranwa· GitHub:https://github.com/amudaheranwa/ · Email: amudaheranwa@alustudent.com
 
 ## Features
 - Add tasks with a title, date, duration (minutes) and category
