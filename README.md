@@ -57,4 +57,8 @@ Other title rules: 3 to 50 characters after trimming. Date must be a valid date,
 - Error messages use `role="alert"` and the status messages use `aria-live`
 - Header, button and text colours have high contrast against their backgrounds
 
+## AI Usage
+
+I used AI as a learning assistant during the development of this project, particularly when working with concepts I did not fully understand. It helped me understand advanced regular expressions in JavaScript, responsive CSS using `@media` queries, task sorting, and JSON import/export. Rather than writing the project for me, AI helped explain the code I had written, what individual lines do, and how different parts work together. This allowed me to learn from the implementation, troubleshoot problems, and improve my understanding of the concepts used in the project.
+
 
