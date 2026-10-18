@@ -6,7 +6,7 @@ An HTML, CSS and JavaScript web app that helps students keep track of campus act
 
 - **Theme chosen:** Campus Life Planner
 - **Live site (GitHub Pages):** https://amudaheranwa.github.io/campus_life_planner_amudaheranwa/Campus-life-planner/index.html
-- **Demo video (unlisted):** 
+- **Demo video :** 
 - **Author:** Alvin Mudaheranwa· GitHub:https://github.com/amudaheranwa/ · Email: amudaheran@alustudent.com
 
 ## Features
