@@ -60,5 +60,6 @@ Other title rules: 3 to 50 characters after trimming. Date must be a valid date,
 ## AI Usage
 
 I used AI as a learning assistant during the development of this project, particularly when working with concepts I did not fully understand. It helped me understand advanced regular expressions in JavaScript, responsive CSS using `@media` queries, task sorting, and JSON import/export. Rather than writing the project for me, AI helped explain the code I had written, what individual lines do, and how different parts work together. This allowed me to learn from the implementation, troubleshoot problems, and improve my understanding of the concepts used in the project.
+link:https://drive.google.com/file/d/1ZsK4Rxq6aXu2LLfOoFQ3XGaR5PMxwn3-/view?usp=drive_link
 
 
